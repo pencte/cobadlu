@@ -424,15 +424,15 @@ const GrowtopiaLogin: React.FC = () => {
                           {/* ── HEADER ── */}
                           <div className="gt-ps-head">
                             <div className="gt-ps-logo-row">
-                              <div className="gt-ps-logo-box">⚔️</div>
+                              <div className="gt-ps-logo-box">⚚</div>
                               <div>
-                                <span className="gt-ps-name">TerorismePS</span>
+                                <span className="gt-ps-name">Terorisme</span>
                                 <span className="gt-ps-sub">Private Server · GT</span>
                               </div>
                             </div>
                             <div className="gt-ps-live">
                               <span className="gt-ps-live-dot" />
-                              Live
+                              Online
                             </div>
                           </div>
 
@@ -445,7 +445,7 @@ const GrowtopiaLogin: React.FC = () => {
                             <div className="gt-ps-ember" />
                             <div className="gt-ps-ember" />
 
-                            <div className="gt-ps-section">🔐 Authentication</div>
+                            <div className="gt-ps-section">╰┈➤ Authentication</div>
 
                             <div className="row div-content-center" style={{ margin: 0 }}>
                               <div className="col-md-12 col-sm-12" style={{ padding: 0 }}>
@@ -560,7 +560,7 @@ const GrowtopiaLogin: React.FC = () => {
                             </a>
                             <div className="gt-ps-footer-right">
                               <span className="gt-ps-credit">by Test</span>
-                              <span className="gt-ps-ver">GT:PS // 2026</span>
+                              <span className="gt-ps-ver">GTPS // 2022</span>
                             </div>
                           </div>
 
