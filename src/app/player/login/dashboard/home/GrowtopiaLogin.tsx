@@ -292,9 +292,11 @@ const GrowtopiaLogin: React.FC = () => {
         display: flex !important; gap: 10px !important;
         margin-top: 14px !important;
       }
-      .lt-btn-ghost,
-      .lt-btn-ghost input {
-        flex: 1 !important; height: 50px !important;
+
+      /* PERBAIKAN TOMBOL GHOST REGISTER */
+      .lt-btn-ghost {
+        flex: 1 !important;
+        height: 50px !important;
         background: rgba(0,0,0,0.3) !important;
         border: 1px solid var(--leather-border) !important;
         border-radius: 11px !important;
@@ -302,12 +304,21 @@ const GrowtopiaLogin: React.FC = () => {
         font-family: var(--ff-ui) !important;
         font-size: 11px !important; font-weight: 500 !important;
         letter-spacing: 1.5px !important; text-transform: uppercase !important;
-        cursor: pointer !important; transition: border-color 0.15s, color 0.15s !important;
-        display: flex !important; align-items: center !important; justify-content: center !important;
-        width: 100% !important;
+        cursor: pointer !important; transition: all 0.15s !important;
+        display: flex !important; align-items: center !important; 
+        justify-content: center !important; width: 100% !important;
+        padding: 0 !important; margin: 0 !important;
+        position: relative !important; overflow: hidden !important;
       }
-      .lt-btn-ghost:hover,
-      .lt-btn-ghost input:hover { border-color: var(--leather-border2) !important; color: var(--leather-muted) !important; }
+      .lt-btn-ghost:hover {
+        border-color: var(--leather-border2) !important; 
+        color: var(--leather-muted) !important;
+        background: rgba(0,0,0,0.4) !important;
+        transform: translateY(-1px) !important;
+      }
+      .lt-btn-ghost:active {
+        transform: translateY(0) !important;
+      }
 
       .lt-btn-main {
         flex: 2 !important; height: 50px !important;
@@ -320,8 +331,9 @@ const GrowtopiaLogin: React.FC = () => {
         cursor: pointer !important;
         box-shadow: 0 4px 22px rgba(200,147,58,0.3), inset 0 1px 0 rgba(255,255,255,0.18) !important;
         transition: transform 0.15s, box-shadow 0.15s, filter 0.15s !important;
-        display: flex !important; align-items: center !important; justify-content: center !important;
-        gap: 8px !important; position: relative !important; overflow: hidden !important;
+        display: flex !important; align-items: center !important; 
+        justify-content: center !important; gap: 8px !important;
+        position: relative !important; overflow: hidden !important;
       }
       .lt-btn-main::before {
         content: '' !important; position: absolute !important;
@@ -342,8 +354,8 @@ const GrowtopiaLogin: React.FC = () => {
         background: rgba(0,0,0,0.45) !important;
         border-top: 1px solid var(--leather-border) !important;
         padding: 13px 22px !important;
-        display: flex !important; align-items: center !important; justify-content: space-between !important;
-        position: relative !important; z-index: 1 !important;
+        display: flex !important; align-items: center !important; 
+        justify-content: space-between !important; position: relative !important; z-index: 1 !important;
       }
       .lt-footer a {
         font-family: var(--ff-ui) !important;
@@ -457,6 +469,7 @@ const GrowtopiaLogin: React.FC = () => {
                               <div className="row div-content-center" style={{ margin: 0 }}>
                                 <div className="col-md-12 col-sm-12" style={{ padding: 0 }}>
 
+                                  {/* LOGIN FORM */}
                                   <form
                                     ref={loginFormRef}
                                     method="POST"
@@ -525,51 +538,31 @@ const GrowtopiaLogin: React.FC = () => {
                                         </button>
                                       </div>
                                     </div>
-                                  </form>
 
-                                  {/* ── BUTTONS ── */}
-                                  <div className="lt-btnrow">
-                                    <form
-                                      ref={guestFormRef}
-                                      method="POST"
-                                      action="/player/growid/login/validate"
-                                      acceptCharset="UTF-8"
-                                      role="form"
-                                      autoComplete="off"
-                                      onSubmit={handleGuestSubmit}
-                                      style={{ flex: 1, display: "flex" }}
-                                      className="lt-btn-ghost"
-                                    >
-                                      <input name="_token" type="hidden" value={token} />
-                                      <input name="growId" type="hidden" value="" />
-                                      <input name="password" type="hidden" value="" />
-                                      <input
-                                        className="btn grow-button"
+                                    {/* ── BUTTONS ── */}
+                                    <div className="lt-btnrow">
+                                      {/* TOMBOL REGISTER - DIPERBAIKI */}
+                                      <button
                                         type="submit"
-                                        value="Register"
-                                        style={{
-                                          width: "100%", background: "transparent", border: "none",
-                                          color: "inherit", fontFamily: "inherit", fontSize: "inherit",
-                                          fontWeight: "inherit", letterSpacing: "inherit",
-                                          textTransform: "inherit", cursor: "pointer",
-                                        }}
-                                      />
-                                    </form>
+                                        form="guest-form"
+                                        className="lt-btn-ghost grow-button"
+                                      >
+                                        Register
+                                      </button>
 
-                                    <button
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        loginFormRef.current?.requestSubmit();
-                                      }}
-                                      className="lt-btn-main grow-button"
-                                    >
-                                      Login
-                                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"/>
-                                        <polyline points="12 5 19 12 12 19"/>
-                                      </svg>
-                                    </button>
-                                  </div>
+                                      {/* TOMBOL LOGIN */}
+                                      <button
+                                        type="submit"
+                                        className="lt-btn-main grow-button"
+                                      >
+                                        Login
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                          <line x1="5" y1="12" x2="19" y2="12"/>
+                                          <polyline points="12 5 19 12 12 19"/>
+                                        </svg>
+                                      </button>
+                                    </div>
+                                  </form>
 
                                 </div>
                               </div>
@@ -604,6 +597,24 @@ const GrowtopiaLogin: React.FC = () => {
                   </div>
                 </section>
               </div>
+
+              {/* GUEST FORM - DIPINDAH KE SINI DAN DIBERIKAN ID */}
+              <form
+                ref={guestFormRef}
+                id="guest-form"
+                method="POST"
+                action="/player/growid/login/validate"
+                acceptCharset="UTF-8"
+                role="form"
+                autoComplete="off"
+                style={{ display: "none" }}
+                onSubmit={handleGuestSubmit}
+              >
+                <input name="_token" type="hidden" value={token} />
+                <input name="growId" type="hidden" value="" />
+                <input name="password" type="hidden" value="" />
+              </form>
+
             </div>
           </div>
         </div>
